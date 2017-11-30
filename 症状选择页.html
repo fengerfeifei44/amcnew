@@ -71,7 +71,37 @@
                     .indexOf((match[3] || "").toLowerCase()) >= 0;
         }
     });
-    $('.search input').keyup(function() {
+   /* $('.search input').keyup(function() {
+        if ($(this).val().length > 0) {
+            $("ul.list").addClass('on');
+            $("ul.list li span").removeClass("color");
+            $(".symptom").hide()
+            //获取所有带关键词的li数组
+            var array= $(".list li").removeClass('on').filter(':containsi("' + $(this).val() + '")').addClass('on');
+            for (var i=0;i<array.length;i++){
+                var val=$(this).val();
+                var text=array[i].innerHTML;
+                //替换关键字
+                text=text.replace(val,function ($0) {
+                    return "<span class='color'>"+$0+"</span>";
+                })
+                //给li赋带关键字颜色的值
+                array[i].innerHTML=text;
+            }
+            //找不到关键字的内容
+            if ($(".list li.on").size() == 0) {
+                var errortext = $(".search .errortext").text();
+                $('ul.list').append('<li class="on">' + errortext + '</li>')
+            }
+
+        } else {
+            $(".symptom").show();
+            $("ul").removeClass('on');
+            $(".list li").removeClass('on');
+
+        }
+    });*/
+    $('.search input').on("input",function() {
         if ($(this).val().length > 0) {
             $("ul.list").addClass('on');
             $("ul.list li span").removeClass("color");
@@ -104,7 +134,7 @@
     $(".search span").click(function () {
         window.location.href="详情页.html"
     })
-   
+
 </script>
 
 
