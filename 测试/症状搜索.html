@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>惠每智能问诊系统</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/public.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<section class="content">
+    <div class="main">
+        <h2>1、选择一个症状</h2>
+        <div class="search">
+            <input type="text" placeholder="使用关键字搜索（例如，咳嗽或头痛）"  name="makeupCo" id="makeupCo" class="makeinp" onfocus="setfocus(this)" oninput="setinput(this);">
+            <span>搜索</span>
+        </div>
+        <ul class="list"  name="makeupCoSe" id="typenum" onchange="changeF(this)" style="display: none">
+            <li>头痛 <i></i> </li>
+            <li>腰痛<i></i></li>
+            <li>肩膀痛<i></i></li>
+            <li>肚子痛<i></i></li>
+            <li>便秘<i></i></li>
+            <li>感冒<i></i></li>
+            <li>发烧<i></i></li>
+        </ul>
+    </div>
+</section>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+    var TempArr=[];//存储li
+    $(function(){
+        /*先将数据存入数组*/
+        $("#typenum li").each(function(index, el) {
+            TempArr[index] = $(this).text();
+        });
+        $(document).bind('click', function(e) {
+            var e = e || window.event; //浏览器兼容性
+            var elem = e.target || e.srcElement;
+            while (elem) { //循环判断至跟节点，防止点击的是div子元素
+                if (elem.id && (elem.id == 'typenum' || elem.id == "makeupCo")) {
+                    return;
+                }
+                elem = elem.parentNode;
+            }
+            $('#typenum').css('display', 'none'); //点击的不是div或其子元素
+        });
+    })
+
+    function changeF(this_) {
+        $(this_).parent().prev().children("input").val($(this_).find("li:selected").text());
+        $("#typenum").css({"display":"none"});
+    }
+    function setfocus(this_){
+        $("#typenum").css({"display":""});
+        var select = $("#typenum");
+        for(i=0;i<TempArr.length;i++){
+            var li = $("<li></li>").text(TempArr[i]);
+            select.append(li);
+        }
+        setinput(this_);
+    }
+
+    function setinput(this_){
+        var select = $("#typenum");
+        select.html("");
+        for(i=0;i<TempArr.length;i++){
+            //若找到以txt的内容开头的，添li
+            if(TempArr[i].substring(0,this_.value.length).indexOf(this_.value)==0){
+                var li = $("<li></li>").text(TempArr[i]);
+                select.append(li);
+            }
+        }
+    }
+</script>
+<!-- <script type="text/javascript">
+        $(function() {
+            $("#btn_1").click(function() {
+                var $keyword = $("#Text1").val()
+                setHeightKeyWord('bbb', $keyword, 'Red', true)
+            });
+        });
+    function setHeightKeyWord(id, keyword, color, bold) {
+        if (keyword == "")
+            return;
+        var tempHTML = $("#" + id).html();
+        var htmlReg = new RegExp("\<.*?\>", "i");
+        var arrA = new Array();
+        for (var i = 0; true; i++) {
+            var m = htmlReg.exec(tempHTML);
+            if (m) {
+                arrA[i] = m;
+            }
+            else {
+                break;
+            }
+            tempHTML = tempHTML.replace(m, "[[[[" + i + "]]]]");
+        }
+        var replaceText
+        if (bold)
+            replaceText = "<b style='color:" + color + ";'>$1</b>";
+        else
+            replaceText = "<font style='color:" + color + ";'>$1</font>";
+        var arrayWord = keyword.split(',');
+        for (var w = 0; w < arrayWord.length; w++) {
+            var r = new RegExp("(" + arrayWord[w].replace(/[(){}.+*?^$|\\\[\]]/g, "\\$&") + ")", "ig");
+            tempHTML = tempHTML.replace(r, replaceText);
+        }
+        for (var i = 0; i < arrA.length; i++) {
+            tempHTML = tempHTML.replace("[[[[" + i + "]]]]", arrA[i]);
+        }
+        $("#" + id).html(tempHTML);
+    }
+</script>-->
+
+</body>
+</html>

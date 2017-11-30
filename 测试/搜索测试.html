@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI 自动完成（Autocomplete） - 默认功能</title>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jqueryui/style.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+        $(function() {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            $( "#tags" ).autocomplete({
+                source: availableTags
+            });
+        });
+    </script>
+</head>
+<body>
+<section class="content">
+    <div class="main">
+        <h2>1、选择一个症状</h2>
+        <div class="search">
+            <input  type="text" id="tags" placeholder="使用关键字搜索（例如，咳嗽或头痛）">
+            <span>搜索</span>
+        </div>
+        <ul class="list" style="display: none;">
+            <li>腰痛<i></i></li>
+            <li>肩膀痛<i></i></li>
+            <li>肚子痛<i></i></li>
+            <li>便秘<i></i></li>
+            <li>感冒<i></i></li>
+            <li>发烧<i></i></li>
+        </ul>
+    </div>
+</section>
+<!--<div class="ui-widget">
+    <label for="tags">标签：</label>
+   &lt;!&ndash; <input id="tags">&ndash;&gt;
+</div>-->
+
+
+</body>
+</html>

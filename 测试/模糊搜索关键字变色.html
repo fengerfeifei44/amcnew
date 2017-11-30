@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //搜索键关键字变色
+    var nWord = "${guanj}"; //获取el表达式冲文本框输入的关键字
+    var array = nWord.split(""); //分割
+    var dsa=document.getElementsByName("dsas");//获取全部商品
+    for ( var t = 0; t < dsa.length; t++) {
+        for ( var i = 0; i < array.length; i++) {
+            //创建表达式，匹配替换
+            var reg = new RegExp("(" + array[i].replace(/,/, "|") + ")", "g");
+            //替换重新写入商品名， 匹配结果中对应的分组匹配结果
+            dsa[t].innerHTML =dsa[t].innerHTML.replace(reg,"<font color=‘red‘>$1</font>");
+        }
+    }
+
+</script>
+</body>
+</html>
