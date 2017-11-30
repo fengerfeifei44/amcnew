@@ -138,9 +138,9 @@ h2{
     font-size: 0.24rem;
     border: 1px solid #d8d8d8;
     outline: none;
-  /*  -webkit-appearance: none;*/
+    -webkit-appearance: none;
    /* background: #f9f9f9;*/
-    background: red;
+
 }
 .group label{
     display: block;
@@ -190,6 +190,7 @@ h2{
     color: #515151;
     font-size: 0.2rem;
     background: #f9f9f9;
+    -webkit-appearance: none;
 
 
 }
