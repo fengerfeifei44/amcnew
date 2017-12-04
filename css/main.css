@@ -47,6 +47,7 @@ a {
 .content{
     text-align: center;
     line-height: 1;
+    padding-bottom: 1rem;
 }
 .title>img{
     width: 100%;
@@ -98,6 +99,7 @@ a {
     font-size: 0.2rem;
 }
 .bottom{
+
     margin-top: 1.16rem;
 }
 .bottom p:nth-child(1){
@@ -149,7 +151,8 @@ h2{
     font-size: 0.26rem;
 }
 .btn_wrap{
-    margin-top: 0.92rem;
+    text-align: center;
+    margin: 0.92rem 0;
 }
 .btn_wrap p{
     color:#3ea8ba;
@@ -388,10 +391,74 @@ h2{
 }
 .property{
     margin: 0.4rem 0 0.2rem 0;
-
     color: #919191;
     font-size: 0.12rem;
     text-align: center;
+}
+/*问诊页*/
+.question{
+    line-height: 1;
+}
+.question .physician{
+    padding: 0.58rem 0.72rem 0.65rem 0.72rem;
+    border-bottom: 0.08rem solid #f7f7f7;
+}
+.physician>p>span{
+    float: right;
+    border: 1px solid #3ea8ba;
+    padding: 0.06rem 0.05rem;
+    text-align: center;
+    color:#37bef0 ;
+    font-size: 0.2rem;
+    border-radius: 5px;
+    line-height: 0.34rem;
+}
+.physician>div h2{
+    margin: 0.6rem 0 0.4rem;
+    color: #4f4f4f;
+}
+.physician>div>p{
+    border-bottom: 1px solid #dcdddd;
+    padding-bottom: 0.16rem;
+    color: #a8a8a8;
+    line-height: 0.28rem;
+    font-size: 0.2rem;
+}
+.answer{
+    padding: 0.58rem 0.72rem 0 0.72rem;
+}
+.answer>p{
+    margin-bottom: 0.8rem;
+    color: #4f4f4f;
+    font-size: 0.26rem;
+
+}
+.answer input{
+    display: none;
+}
+.answer label{
+    display: block;
+    margin-bottom: 0.26rem;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    padding: 0.15rem 0.12rem;
+   /* height: 0.6rem;*/
+    line-height: 0.32rem;
+    color: #878787;
+    font-size: 0.24rem;
+    text-align: center;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+.answer label.other{
+    color: #fff;
+    background: #c5e5ea;
+    border: 1px solid #c5e5ea;
+}
+.answer label.on{
+    color: #fff;
+    border: 1px solid #3ea8ba;
+    background: #3ea8ba;
 }
 
 
